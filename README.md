@@ -19,7 +19,7 @@ simplesamlphp Admin login: admin / pizza9pixel
 
 # Deployment 
 
-1. Edit the [config.yml](config.yml) with the uaa endpoints that match your environment
+*  Edit the [config.yml](config.yml) with the uaa endpoints that match your environment
 
   * opsman_uaa: https://opsman.domain:443
   * bosh_uaa: https://BOSH_DIRECTOR_IP:8443
@@ -34,7 +34,7 @@ ert_uaa: "http://login.system.domain"
 app_name: "mysaml"
 ```
 
-2. make sure you are logged into the api endpoine and start the deployment 
+*  make sure you are logged into the api endpoine and start the deployment 
 
 ```
 $ ./deploy_new_saml_server.rb config.yml
@@ -73,23 +73,23 @@ $metadata['http://login.system.domain'] = array(
 ready to run cf push mysaml? [y/n]:
 ```
 
-3.  The saml metadata endpoint would be something like http://mysaml.apps.domain/saml2/idp/metadata.php
+* The saml metadata endpoint would be something like http://mysaml.apps.domain/saml2/idp/metadata.php
 
 # Mapping external groups with ERT UAA
 
-1. Target the ERT uaa 
+* Target the ERT uaa 
 
 ```
 uaac target https://login.system.domain --skip-ssl-validation
 ```
 
-2. Use uaac to get the admin client token
+* Use uaac to get the admin client token
 
 ```
 uaac token client get
 ```
 
-3. Map the external groups to what ever scopes you like.  Here is an example of mapping the admin@test.org user to cloud_controler.admin scope 
+* Map the external groups to what ever scopes you like.  Here is an example of mapping the admin@test.org user to cloud_controler.admin scope 
 
 ```
 uaac group map --name cloud_controller.admin pcfadmins --origin simplesamlphp
