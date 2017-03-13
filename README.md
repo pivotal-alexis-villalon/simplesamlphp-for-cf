@@ -73,6 +73,8 @@ $metadata['http://login.system.domain'] = array(
 ready to run cf push mysaml? [y/n]:
 ```
 
+3.  The saml metadata endpoint would be something like http://mysaml.apps.domain/saml2/idp/metadata.php
+
 # Mapping external groups with ERT UAA
 
 1. Target the ERT uaa 
