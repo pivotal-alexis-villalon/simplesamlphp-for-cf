@@ -12,8 +12,8 @@ This is a code fork for the simplesamlphp in it's configured, ready to deploy to
 This is used for to test SAML authentication with Ops Manager, Bosh Director, ERT, and SSO
 
 # Preconfigured Users
-IDP Admin User login: admin / password [ mapped to pcfadmins group [config/authsources.php](config/authsources.php) ]<br>
-IDP User login: user / password [ mapped to pcfusers group see [config/authsources.php](config/authsources.php)]
+IDP Admin User login: samladmin / password [ mapped to pcfadmins group [config/authsources.php](config/authsources.php) ]<br>
+IDP User login: samluser / password [ mapped to pcfusers group see [config/authsources.php](config/authsources.php)]
 simplesamlphp Admin login: admin / pizza9pixel
 
 

@@ -92,15 +92,15 @@ $config = array(
         'remember.username.enabled' => TRUE,
         'remember.username.checked' => TRUE,
 
-        'admin:password' => array(
-            'uid' => 'admin@test.org',
-            'emailAddress' => 'admin@test.org',
+        'samladmin:password' => array(
+            'uid' => 'samladmin@test.org',
+            'emailAddress' => 'samladmin@test.org',
             'external_groups' => 'pcfadmins'
         ),
 
-        'user:password' => array(
-            'uid' => 'user@test.org',
-            'emailAddress' => 'user@test.org',
+        'samluser:password' => array(
+            'uid' => 'samluser@test.org',
+            'emailAddress' => 'samluser@test.org',
             'external_groups' => 'pcfusers'
         ),
 

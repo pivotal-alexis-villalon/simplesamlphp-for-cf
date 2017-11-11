@@ -13,16 +13,25 @@ def prompt(string)
   $stdin.gets.chomp
 end
 
-configFile = ARGV.first
 
 opsman_url = ""
 bosh_url = ""
 ert_url = ""
 myconfig = ""
+skipPrompt = false
+configFile = ""
 name = "" # app name
 
-if ARGV.length > 0 
-  myconfig = YAML.load_file(ARGV.first)
+ARGV.each do |a|
+  if a == "-a"
+    skipPrompt = true 
+  else 
+    configFile = a
+  end
+end
+
+if configFile != ""
+  myconfig = YAML.load_file(configFile)
   opsman_url = myconfig['opsman_uaa']
   bosh_url = myconfig['bosh_uaa']
   ert_url = myconfig['ert_uaa']
@@ -93,10 +102,12 @@ puts File.read('metadata/saml20-sp-remote.php')
 puts
 puts "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\n\n"
 
-ask = prompt "ready to run cf push #{name}? [y/n]: " 
-if ask.downcase != "y"
-  puts "\nCanceling execution...\n"
-  exit 
+if !skipPrompt
+  ask = prompt "ready to run cf push #{name}? [y/n]: " 
+  if ask.downcase != "y"
+    puts "\nCanceling execution...\n"
+    exit 
+  end
 end
 
 run "cf push #{name} -n #{name} -m 128M -b https://github.com/cf-identity/php-buildpack.git"
